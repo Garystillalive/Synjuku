@@ -321,21 +321,78 @@ Animations are deliberate, subtle, and intentional—no bouncy or playful motion
 - YC / crypto-bro energy
 - Trying to sound like "the next Elon Musk"
 
+## Form Page
+
+The form page (`form.html`) provides a client intent submission system with password-protected access.
+
+### Form Page Overview
+
+The form page serves as a gateway for clients to submit project inquiries and collaboration requests. It follows the same design system principles—minimal, calm, and precise.
+
+### Form Structure
+
+The form consists of two stages:
+
+1. **Access Form** (Initial)
+   - Email and password authentication
+   - Required for accessing the client intent form
+   - Client password: `synjuku2025`
+   - Admin credentials available for internal use
+
+2. **Client Intent Form** (After Authentication)
+   - Name (required)
+   - Email (required, pre-filled from access form)
+   - Organization (optional)
+   - Project Type (required):
+     - Dataset Request
+     - Hardware Inquiry
+     - Research Collaboration
+     - Other
+   - Message (optional text area)
+
+### Form Design Guidelines
+
+- **Seal Stamp**: The character "塾" appears as a visual stamp element
+- **Minimal Layout**: Centered form with generous spacing
+- **Typography**: Uses IBM Plex Mono for monospace, technical feel
+- **Color Scheme**: Maintains seal red accents and paper white background
+- **Interaction**: Smooth transitions between form stages
+- **Validation**: Client-side validation with clear error messaging
+
+### Form Usage
+
+1. Navigate to `form.html`
+2. Enter email and password
+3. Upon successful authentication, the client intent form appears
+4. Complete all required fields
+5. Submit to send inquiry
+
+### Security Notes
+
+- Password authentication is client-side only (for prototype)
+- In production, implement server-side authentication
+- Form submissions should be handled via secure backend API
+- Admin credentials should be stored securely server-side
+
 ## File Structure
 
 ```
 Prototype_web/
-├── index.html          # Main HTML structure
-├── styles.css          # Complete design system CSS
+├── index.html          # Main HTML structure (menu-based navigation)
+├── form.html           # Client intent form with password protection
+├── styles-v3.css       # Complete design system CSS
+├── script-v3.js        # Interactive JavaScript for menu navigation
 └── README.md          # This design system documentation
 ```
 
 ## Usage
 
-1. Open `index.html` in a modern web browser
-2. All styles are contained in `styles.css`
-3. No build process required — static HTML/CSS
-4. Fonts loaded from Google Fonts (Crimson Text, Inter)
+1. Open `index.html` in a modern web browser for the main site
+2. Open `form.html` for client intent submissions
+3. All styles are contained in `styles-v3.css`
+4. Interactive features handled by `script-v3.js`
+5. No build process required — static HTML/CSS/JS
+6. Fonts loaded from Google Fonts (IBM Plex Mono)
 
 ## Browser Support
 
