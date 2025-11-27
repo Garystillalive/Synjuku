@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synjuku - Form</title>
+    <link rel="stylesheet" href="styles-v3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-wrapper" id="passwordForm">
+            <div class="form-stamp">塾</div>
+            <h1 class="form-title">Client Intent Form</h1>
+            <p class="form-subtitle">Password and email required</p>
+            <form id="accessForm" class="access-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="form-button">Access</button>
+            </form>
+        </div>
+
+        <div class="form-wrapper" id="clientForm" style="display: none;">
+            <div class="form-stamp">塾</div>
+            <h1 class="form-title">Client Intent Form</h1>
+            <form id="submitForm" class="client-form">
+                <div class="form-group">
+                    <label for="clientName">Name</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Email</label>
+                    <input type="email" id="clientEmail" name="clientEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input type="text" id="organization" name="organization">
+                </div>
+                <div class="form-group">
+                    <label for="projectType">Project Type</label>
+                    <select id="projectType" name="projectType" required>
+                        <option value="">Select...</option>
+                        <option value="dataset">Dataset Request</option>
+                        <option value="hardware">Hardware Inquiry</option>
+                        <option value="research">Research Collaboration</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="form-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Admin Credentials
+        // Admin Email: admin@synjuku.ai
+        // Admin Password: synjuku_admin_2025
+        // Client Password: synjuku2025
+        
+        // Simple password check (in production, this should be server-side)
+        const CLIENT_PASSWORD = 'synjuku2025';
+        const ADMIN_EMAIL = 'admin@synjuku.ai';
+        const ADMIN_PASSWORD = 'synjuku_admin_2025';
+        
+        document.getElementById('accessForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (password === CLIENT_PASSWORD && email) {
+                document.getElementById('passwordForm').style.display = 'none';
+                document.getElementById('clientForm').style.display = 'block';
+                // Pre-fill email in client form
+                document.getElementById('clientEmail').value = email;
+            } else {
+                alert('Invalid password or email');
+            }
+        });
+
+        document.getElementById('submitForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In production, submit to server
+            alert('Form submitted successfully. We will contact you soon.');
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+

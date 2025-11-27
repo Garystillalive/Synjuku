@@ -1,0 +1,421 @@
+/* ============================================
+   Synjuku Design System v3
+   Extremely Concise - Vertical Expandable Menu
+   ============================================ */
+
+/* Color Palette */
+:root {
+    --seal-red: #780000;
+    --ink-black: #1a1a1a;
+    --ink-gray: #4a4a4a;
+    --paper-white: #fef6e7;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar */
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.menu-content {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.menu-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--ink-black);
+    background-color: var(--paper-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+}
+
+/* Menu Container - Top Aligned */
+.menu-container {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+    width: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Stamp in top right corner of menu container */
+.menu-container .stamp {
+    position: absolute;
+    top: -24px;
+    right: 0;
+    font-size: 20px;
+    color: var(--seal-red);
+    font-weight: 400;
+    z-index: 100;
+    opacity: 0.6;
+}
+
+/* Menu Item */
+.menu-item {
+    position: relative;
+    width: auto;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 16px 24px;
+    display: block;
+    margin: 0;
+    text-align: center;
+    opacity: 1;
+}
+
+.menu-label {
+    font-size: 16px;
+    color: var(--ink-black);
+    text-align: center;
+    transition: color 0.3s ease;
+    letter-spacing: 0;
+    font-weight: 400;
+    line-height: 1.4;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.menu-label .char {
+    display: block;
+    line-height: 1.4;
+}
+
+.menu-label .char-space {
+    display: block;
+    height: 0.3em;
+}
+
+.menu-item:hover .menu-label {
+    color: var(--seal-red);
+}
+
+/* Content Panel - Hidden by default, shown between left items and active item */
+.menu-content {
+    position: fixed;
+    top: 120px;
+    width: 380px;
+    max-width: calc(50vw - 200px);
+    max-height: calc(100vh - 160px);
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink-gray);
+    text-align: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Red dot scroll indicator */
+.scroll-indicator {
+    position: fixed;
+    right: 24px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--seal-red);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, top 0.1s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.scroll-indicator.visible {
+    opacity: 0.6;
+}
+
+/* Sample images */
+.sample-images {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sample-image {
+    width: 100%;
+    position: relative;
+}
+
+.sample-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-comment {
+    margin-top: 0.5rem;
+    font-size: 11px;
+    color: var(--ink-gray);
+    font-style: italic;
+}
+
+.menu-content p {
+    margin-bottom: 1rem;
+}
+
+.menu-content p:last-child {
+    margin-bottom: 0;
+}
+
+.menu-content a {
+    color: var(--seal-red);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.menu-content a:hover {
+    opacity: 0.7;
+}
+
+/* Expanded State */
+.menu-item.expanded .menu-label {
+    color: var(--seal-red);
+}
+
+.menu-item.expanded .menu-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* When an item is expanded, items reposition */
+.menu-container.has-expanded .menu-item {
+    position: fixed;
+    width: auto;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-container.has-expanded .menu-item.position-left {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+}
+
+.menu-container.has-expanded .menu-item.position-right {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+}
+
+.menu-container.has-expanded .menu-item.expanded {
+    z-index: 20;
+    opacity: 1;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 80px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-gray);
+    font-weight: 300;
+    z-index: 10;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 11px;
+    color: var(--ink-gray);
+}
+
+/* Form Page Styles */
+.form-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+}
+
+.form-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 3rem 2rem;
+}
+
+.form-stamp {
+    position: absolute;
+    top: -24px;
+    right: 0;
+    font-size: 20px;
+    color: var(--seal-red);
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.form-title {
+    font-size: 24px;
+    color: var(--ink-black);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.form-subtitle {
+    font-size: 12px;
+    color: var(--ink-gray);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 300;
+}
+
+.access-form,
+.client-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 11px;
+    color: var(--ink-black);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    padding: 0.75rem;
+    border: 1px solid rgba(29, 29, 26, 0.2);
+    background-color: var(--paper-white);
+    color: var(--ink-black);
+    transition: border-color 0.3s ease;
+    font-weight: 300;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--seal-red);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    border: 1px solid var(--ink-black);
+    color: var(--ink-black);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 1rem;
+}
+
+.form-button:hover {
+    border-color: var(--seal-red);
+    color: var(--seal-red);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 10px;
+    }
+
+    .menu-container {
+        left: 20px;
+        right: 20px;
+    }
+
+    .menu-container .stamp {
+        font-size: 18px;
+        top: -20px;
+    }
+
+    .menu-label {
+        font-size: 10px;
+    }
+
+    .menu-content {
+        width: 85vw;
+        font-size: 9px;
+        transform: translate(-50%, -50%);
+    }
+
+    .menu-item.expanded .menu-content {
+        transform: translate(-50%, -50%);
+    }
+
+    /* On mobile, content appears below instead of left */
+    .menu-item.expanded .menu-content {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    .menu-container.has-expanded .menu-item:not(.expanded) {
+        position: relative;
+        left: auto;
+        right: auto;
+        transform: none;
+    }
+
+    .footer {
+        padding: 20px;
+        font-size: 9px;
+    }
+}
+
