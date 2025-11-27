@@ -74,12 +74,20 @@
         const ADMIN_EMAIL = 'admin@synjuku.ai';
         const ADMIN_PASSWORD = 'synjuku_admin_2025';
         
+        // Test credentials
+        const TEST_EMAIL = 'a@gmail.com';
+        const TEST_PASSWORD = 'a';
+        
         document.getElementById('accessForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             
-            if (password === CLIENT_PASSWORD && email) {
+            // Check for test credentials or standard client password
+            const isValid = (email === TEST_EMAIL && password === TEST_PASSWORD) || 
+                           (password === CLIENT_PASSWORD && email);
+            
+            if (isValid) {
                 document.getElementById('passwordForm').style.display = 'none';
                 document.getElementById('clientForm').style.display = 'block';
                 // Pre-fill email in client form
