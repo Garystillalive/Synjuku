@@ -357,3 +357,4 @@ Prototype_web/
 **Last Updated**: 2024  
 **Maintained by**: Synjuku Design Team
 
+# Synjuku
