@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Library</title>
+    <link rel="stylesheet" href="styles-v3.css">
+    <link rel="stylesheet" href="styles-data-library.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Introduction content in top right -->
+    <div class="intro-content">
+        <h1 class="intro-title">Data Library</h1>
+        <p class="intro-text">Our comprehensive collection of manipulation datasets organized by demonstration type. Browse the categories below to explore videos and metadata.</p>
+        
+        <div class="table-of-contents">
+            <div class="toc-section">
+                <div class="toc-main" data-toc-target="human-demonstration">I. Human Demonstration</div>
+            </div>
+            
+            <div class="toc-section">
+                <div class="toc-main" data-toc-target="umi">II. UMI</div>
+            </div>
+            
+            <div class="toc-section">
+                <div class="toc-main" data-toc-target="robot-teleop">III. Robot Teleop</div>
+            </div>
+        </div>
+    </div>
+
+    <main class="content-container">
+        <!-- Human Demonstration -->
+        <div class="category-section" data-item="human-demonstration">
+            <h2 class="category-title">I. Human Demonstration</h2>
+            <p class="category-intro">Human demonstration datasets capture natural manipulation behaviors through various recording methods. These datasets serve as the foundation for learning manipulation policies and understanding human dexterity in complex tasks.</p>
+            
+            <div class="video-item" data-video-file="Long horizon 02.mp4" data-json-file="XX010002.json">
+                <div class="video-label">Human Demonstration Sample</div>
+                <video class="motion-video" controls preload="metadata" muted>
+                    <source src="data-library-videos/Long horizon 02.mp4" type="video/mp4">
+                </video>
+                <div class="video-comment">Human demonstration of manipulation tasks.</div>
+                <div class="video-metadata"></div>
+            </div>
+        </div>
+
+        <!-- UMI -->
+        <div class="category-section" data-item="umi">
+            <h2 class="category-title">II. UMI</h2>
+            <p class="category-intro">UMI (Universal Manipulation Interface) datasets provide standardized manipulation demonstrations across various platforms and environments, enabling cross-domain learning and transfer.</p>
+            
+            <div class="subcategory">
+                <div class="subcategory-label">UMI Demonstrations</div>
+                <div class="subcategory-content">
+                    <div class="video-item" data-video-file="UMI 01.mp4" data-json-file="XX010001.json">
+                        <div class="video-label">UMI Demonstration</div>
+                        <video class="motion-video" controls preload="metadata" muted>
+                            <source src="data-library-videos/UMI 01.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-comment">Universal manipulation interface demonstration showing standardized task execution.</div>
+                        <div class="video-metadata"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Robot Teleop -->
+        <div class="category-section" data-item="robot-teleop">
+            <h2 class="category-title">III. Robot Teleop</h2>
+            <p class="category-intro">Robot teleoperation datasets capture human-guided robot demonstrations, providing direct control signals and resulting robot behaviors for learning manipulation policies.</p>
+            
+            <div class="subcategory">
+                <div class="subcategory-label">Teleoperation Demonstrations</div>
+                <div class="subcategory-content">
+                    <div class="video-item" data-video-file="Robot 03.mp4" data-json-file="XX010003.json">
+                        <div class="video-label">Robot Teleoperation</div>
+                        <video class="motion-video" controls preload="metadata" muted>
+                            <source src="data-library-videos/Robot 03.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-comment">Human-guided robot manipulation through teleoperation interface.</div>
+                        <div class="video-metadata"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Synjuku © 2025 all rights reserved</p>
+    </footer>
+
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <script src="script-data-library.js"></script>
+</body>
+</html>
+

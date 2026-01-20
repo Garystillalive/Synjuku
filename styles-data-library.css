@@ -1,0 +1,211 @@
+/* Additional styles for Data Library page */
+
+/* Content Container - replaces menu-container */
+.content-container {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    right: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 3rem;
+    width: auto;
+    padding-bottom: 4rem;
+}
+
+/* Category Section - replaces menu-item */
+.category-section {
+    width: 100%;
+    position: relative;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(29, 29, 26, 0.1);
+}
+
+.category-section:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+/* Category Title */
+.category-title {
+    font-size: 16px;
+    color: var(--ink-black);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+/* Category Introduction */
+.category-intro {
+    font-size: 12px;
+    color: var(--ink-gray);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* Metadata Window Styles */
+.metadata-window {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(29, 29, 26, 0.15);
+}
+
+.metadata-header {
+    font-size: 12px;
+    color: var(--seal-red);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.metadata-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.metadata-item {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.metadata-label {
+    color: var(--ink-black);
+    font-weight: 400;
+    min-width: 100px;
+}
+
+.metadata-value {
+    color: var(--ink-gray);
+    font-weight: 300;
+    flex: 1;
+}
+
+/* Video item hover effect for metadata interaction */
+.video-item {
+    transition: opacity 0.3s ease;
+}
+
+.video-item:hover {
+    opacity: 0.9;
+}
+
+/* Video metadata display - JSON */
+.video-metadata {
+    margin-top: 1rem;
+    position: relative;
+}
+
+.video-metadata .metadata-header {
+    font-size: 12px;
+    color: var(--seal-red);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.video-metadata .json-content {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-gray);
+    line-height: 1.6;
+    background-color: rgba(29, 29, 26, 0.03);
+    padding: 1rem;
+    border: 1px solid rgba(29, 29, 26, 0.1);
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    max-height: none;
+    height: auto;
+}
+
+.json-content {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-gray);
+    line-height: 1.6;
+    background-color: rgba(29, 29, 26, 0.03);
+    padding: 1rem;
+    border: 1px solid rgba(29, 29, 26, 0.1);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+.json-error {
+    font-size: 10px;
+    color: var(--seal-red);
+    font-style: italic;
+}
+
+/* Category metadata JSON display */
+.json-block {
+    margin-bottom: 1.5rem;
+}
+
+.json-block:last-child {
+    margin-bottom: 0;
+}
+
+.json-filename {
+    font-size: 11px;
+    color: var(--seal-red);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.json-loading {
+    font-size: 11px;
+    color: var(--ink-gray);
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content-container {
+        left: 20px;
+        right: 20px;
+        top: 20px;
+        gap: 2rem;
+    }
+
+    .category-title {
+        font-size: 14px;
+    }
+
+    .category-intro {
+        font-size: 11px;
+    }
+
+    .metadata-window {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .metadata-header {
+        font-size: 11px;
+    }
+
+    .metadata-item {
+        font-size: 10px;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .metadata-label {
+        min-width: auto;
+    }
+}
+

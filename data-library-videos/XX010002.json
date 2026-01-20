@@ -1,0 +1,159 @@
+{
+  "scene": {
+    "area": "Home Office",
+    "environment": "Desk object manipulation: picking, inspecting, unfolding, and rotating items"
+  },
+  "tasks": [
+    {
+      "description": "Sequence of desk object manipulations",
+      "start_time": 0,
+      "end_time": 100,
+      "subtasks": [
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 0,
+          "end_time": 10,
+          "actions": [
+            {
+              "action": "Pick up {X} from {Y}, unfold it, and place it back",
+              "target": [
+                "X: Metal tape measure",
+                "Y: Ink-black box"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 10,
+          "end_time": 20,
+          "actions": [
+            {
+              "action": "Pick up {X}, twist to open, twist to close, and place it back",
+              "target": [
+                "X: Golden tin box"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 20,
+          "end_time": 30,
+          "actions": [
+            {
+              "action": "Pick up {X}, flip open lid, close lid, and place it back",
+              "target": [
+                "X: Plastic box next to the tin box"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 30,
+          "end_time": 40,
+          "actions": [
+            {
+              "action": "Pick up {X}, inspect, and place it back",
+              "target": [
+                "X: Black data cable"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 40,
+          "end_time": 50,
+          "actions": [
+            {
+              "action": "Lift {X} from the desk edge and place it back",
+              "target": [
+                "X: Pair of gloves"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 50,
+          "end_time": 60,
+          "actions": [
+            {
+              "action": "Pick up {X} from {Y}, inspect, and place it back",
+              "target": [
+                "X: Blue color pen",
+                "Y: Pen holder"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 60,
+          "end_time": 70,
+          "actions": [
+            {
+              "action": "Pick up {X}, inspect, and place it back",
+              "target": [
+                "X: Aluminum power bank"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 70,
+          "end_time": 80,
+          "actions": [
+            {
+              "action": "Pick up {X}, inspect, open and close several times, and place it back",
+              "target": [
+                "X: Scissors"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 80,
+          "end_time": 90,
+          "actions": [
+            {
+              "action": "Lift {X}, inspect, and place it back",
+              "target": [
+                "X: Plastic bag containing a small data cable"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 90,
+          "end_time": 100,
+          "actions": [
+            {
+              "action": "Pick up {X}, inspect, and place it back on its reverse side",
+              "target": [
+                "X: Aluminum power bank"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "duration": 100,
+  "video_id": "XX010002"
+}

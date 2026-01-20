@@ -1,0 +1,32 @@
+{
+  "scene": {
+    "area": "Factory",
+    "environment": "Factory object manipulation: pick and place"
+  },
+  "tasks": [
+    {
+      "description": "Transport the part to the next station",
+      "start_time": 0,
+      "end_time": 5,
+      "subtasks": [
+        {
+          "type": "Action",
+          "status": "Success",
+          "start_time": 0,
+          "end_time": 5,
+          "actions": [
+            {
+              "action": "Pick up {X} and place it in {Y}",
+              "target": [
+                "X: Silver door handle",
+                "Y: Blue, rectangular plastic basket"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "duration": 5,
+  "video_id": "XX010003"
+}
